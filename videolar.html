@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KickFlash - Videolar</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="site-loader">
+    <div class="loader-logo"></div>
+    <div class="loader-spin"></div>
+  </div>
+  <div id="site-toast"></div>
+  <button id="theme-toggle" aria-label="Tungi/yorug‘ rejim"><span>🌙</span></button>
+  <button id="scroll-up" aria-label="Yuqoriga qaytish">↑</button>
+  <header class="main-header glassy">
+    <div class="container header__container">
+      <a href="index.html" class="logo neon">KickFlash</a>
+      <nav class="nav" aria-label="Sayt navigatsiyasi">
+        <ul>
+          <li><a href="index.html" class="nav__link">Bosh sahifa</a></li>
+          <li><a href="videolar.html" class="nav__link nav__link--active">Videolar</a></li>
+          <li><a href="obuna.html" class="nav__link">Obuna bo'lish</a></li>
+          <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Navigatsiyani ochish" aria-expanded="false"><span>≡</span></button>
+      </nav>
+    </div>
+  </header>
+  <section class="videos glassy">
+    <div class="container">
+      <h2 class="section-title neon-glow" style="text-align:center;">🎬 Barcha Videolar</h2>
+      <div class="video-grid">
+        <div class="video-item fade-in">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/qNlhLY-Ysa8" title="Video 1" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">So'nggi pressing va dramatik yakun!</p>
+        </div>
+        <div class="video-item fade-in" style="animation-delay: .08s;">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/grgmpoDRZu0" title="Video 2" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Professional hujum va g‘alaba goli!</p>
+        </div>
+        <div class="video-item fade-in" style="animation-delay: .16s;">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/gKJ8X0WcbJk" title="Short 1" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Tezkor short: dribbling va g‘alaba!</p>
+        </div>
+        <div class="video-item fade-in" style="animation-delay: .24s;">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/S_qHCGlKAo0" title="Short 2" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Shorts: Power dribbling!</p>
+        </div>
+        <div class="video-item fade-in" style="animation-delay: .32s;">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/S_TjH8XmToU" title="Short 3" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Shorts: Super goal moment!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="main-footer glassy">
+    <div class="container">
+      <p>&copy; 2025 KickFlash | <a href="https://t.me/botirqodirov_iv" target="_blank">Telegram</a> | <a href="https://instagram.com/botir_qodirof" target="_blank">Instagram</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

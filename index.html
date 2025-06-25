@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KickFlash - Bosh sahifa</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Universal UI -->
+  <div id="site-loader">
+    <div class="loader-logo"></div>
+    <div class="loader-spin"></div>
+  </div>
+  <div id="site-toast"></div>
+  <button id="theme-toggle" aria-label="Tungi/yorug‘ rejim"><span>🌙</span></button>
+  <button id="scroll-up" aria-label="Yuqoriga qaytish">↑</button>
+  <!-- /Universal UI -->
+
+  <header class="main-header glassy">
+    <div class="container header__container">
+      <a href="index.html" class="logo neon">KickFlash</a>
+      <nav class="nav" aria-label="Sayt navigatsiyasi">
+        <ul>
+          <li><a href="index.html" class="nav__link nav__link--active">Bosh sahifa</a></li>
+          <li><a href="videolar.html" class="nav__link">Videolar</a></li>
+          <li><a href="obuna.html" class="nav__link">Obuna bo'lish</a></li>
+          <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Navigatsiyani ochish" aria-expanded="false"><span>≡</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2 class="hero-title neon-glow">KickFlash YouTube kanaliga xush kelibsiz!</h2>
+          <p class="hero-subtitle">PES 2013 o'yinining eng qiziqarli lahzalari, gollar, dribblinglar va highlightlarni tomosha qiling. Har kuni yangi kontent sizni kutmoqda!</p>
+          <a href="videolar.html" class="hero-btn glow-btn">Videolarni ko‘rish</a>
+        </div>
+        <div class="hero-visual">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Soccer_ball.svg/1200px-Soccer_ball.svg.png" alt="Soccer ball" class="hero-img floating">
+        </div>
+      </div>
+    </section>
+
+    <!-- Klublar (Sevimli jamoalaringiz) -->
+    <section class="teams glassy">
+      <div class="container">
+        <h2 class="section-title neon-glow">Sevimli jamoalaringiz</h2>
+        <div class="teams-flex">
+          <div class="team-card pop-in" tabindex="0" aria-label="Manchester United" data-team="manutd" style="animation-delay: 0s;">
+            <div class="team-img-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United">
+            </div>
+            <p>Manchester United</p>
+          </div>
+          <div class="team-card pop-in" tabindex="0" aria-label="FC Barcelona" data-team="barca" style="animation-delay: .08s;">
+            <div class="team-img-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona">
+            </div>
+            <p>FC Barcelona</p>
+          </div>
+          <div class="team-card pop-in" tabindex="0" aria-label="Real Madrid" data-team="realmadrid" style="animation-delay: .16s;">
+            <div class="team-img-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="Real Madrid">
+            </div>
+            <p>Real Madrid</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL (Agar kerak bo‘lsa, JS orqali ishlaydi) -->
+    <div class="team-modal" id="team-modal" tabindex="-1" style="display:none;">
+      <div class="team-modal-overlay"></div>
+      <div class="team-modal-content glassy">
+        <button class="team-modal-close" aria-label="Yopish">&times;</button>
+        <div class="team-modal-inner" id="team-modal-inner"></div>
+      </div>
+    </div>
+
+    <!-- Poll Bloki -->
+    <section class="poll glassy">
+      <div class="container">
+        <h2 class="section-title neon-glow">🏆 Qaysi jamoa eng kuchli?</h2>
+        <form id="poll-form" class="poll-form">
+          <label class="poll-option">
+            <input type="radio" name="team" value="Manchester United" required>
+            <span class="custom-radio manutd"></span>
+            <span>Manchester United</span>
+          </label>
+          <label class="poll-option">
+            <input type="radio" name="team" value="Barcelona">
+            <span class="custom-radio barca"></span>
+            <span>Barcelona</span>
+          </label>
+          <label class="poll-option">
+            <input type="radio" name="team" value="Real Madrid">
+            <span class="custom-radio realmadrid"></span>
+            <span>Real Madrid</span>
+          </label>
+          <button type="submit" class="btn glow-btn poll-submit">Ovoz berish</button>
+        </form>
+        <div id="vote-result" class="vote-result"></div>
+        <div class="vote-counts" id="vote-counts" style="display:none;">
+          <div class="bar-container">
+            <div class="bar manutd" id="bar-manutd">0% - Manchester United</div>
+          </div>
+          <div class="bar-container">
+            <div class="bar barca" id="bar-barca">0% - Barcelona</div>
+          </div>
+          <div class="bar-container">
+            <div class="bar realmadrid" id="bar-realmadrid">0% - Real Madrid</div>
+          </div>
+          <p id="total-votes" style="margin-top: 1rem;"></p>
+        </div>
+      </div>
+      <canvas id="confetti-canvas"></canvas>
+    </section>
+
+    <!-- Videolar -->
+    <section class="videos glassy">
+      <div class="container">
+        <h2 class="section-title neon-glow" style="text-align:center;">🔥 Eng So'nggi Videolar</h2>
+        <div class="video-grid">
+          <div class="video-item fade-in">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/qNlhLY-Ysa8" title="Video 1" loading="lazy" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">🎯 So'nggi pressing va dramatik yakun!</p>
+          </div>
+          <div class="video-item fade-in" style="animation-delay: .12s;">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/grgmpoDRZu0" title="Video 2" loading="lazy" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">⚽ Professional hujum va g‘alaba goli!</p>
+          </div>
+          <div class="video-item fade-in" style="animation-delay: .24s;">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/gKJ8X0WcbJk" title="Short 1" loading="lazy" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">🔥 Tezkor short: dribbling va g‘alaba!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer glassy">
+    <div class="container">
+      <p>&copy; 2025 KickFlash | <a href="https://t.me/botirqodirov_iv" target="_blank">Telegram</a> | <a href="https://instagram.com/botir_qodirof" target="_blank">Instagram</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Poll va klublar modali uchun JS (faqat index.html uchun)
+    let votes = {"Manchester United": 0, "Barcelona": 0, "Real Madrid": 0};
+    const pollForm = document.getElementById("poll-form");
+    const confettiCanvas = document.getElementById("confetti-canvas");
+
+    if(pollForm){
+      pollForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const choice = document.querySelector('input[name="team"]:checked').value;
+        votes[choice]++;
+        const totalVotes = votes["Manchester United"] + votes["Barcelona"] + votes["Real Madrid"];
+        function percent(team) {
+          return totalVotes > 0 ? Math.round((votes[team] / totalVotes) * 100) : 0;
+        }
+        document.getElementById("bar-manutd").style.width = percent("Manchester United") + "%";
+        document.getElementById("bar-manutd").innerText = percent("Manchester United") + "% - Manchester United";
+        document.getElementById("bar-barca").style.width = percent("Barcelona") + "%";
+        document.getElementById("bar-barca").innerText = percent("Barcelona") + "% - Barcelona";
+        document.getElementById("bar-realmadrid").style.width = percent("Real Madrid") + "%";
+        document.getElementById("bar-realmadrid").innerText = percent("Real Madrid") + "% - Real Madrid";
+        document.getElementById("total-votes").innerText = `Jami ovozlar: ${totalVotes}`;
+        document.getElementById("vote-result").innerText = `✅ Siz ${choice} uchun ovoz berdingiz. Rahmat!`;
+        document.getElementById("vote-counts").style.display = "block";
+        pollForm.reset();
+        confetti(confettiCanvas);
+      });
+    }
+    function confetti(canvas){
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width = window.innerWidth;
+      const H = canvas.height = 150;
+      const colors = ['#00ff99','#da291c','#004d98','#febd00','#fff','#00c97c'];
+      let pieces = [];
+      for(let i=0;i<36;i++){
+        pieces.push({
+          x: Math.random()*W,
+          y: Math.random()*-40,
+          s: 6+Math.random()*10,
+          c: colors[Math.floor(Math.random()*colors.length)],
+          v: 2+Math.random()*2,
+          a: Math.random()*2*Math.PI
+        });
+      }
+      let frame=0;
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        for(let p of pieces){
+          ctx.save();
+          ctx.translate(p.x,p.y);
+          ctx.rotate(p.a);
+          ctx.fillStyle=p.c;
+          ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);
+          ctx.restore();
+          p.y+=p.v;
+          p.a+=0.08;
+          if(p.y>H+20) p.y=-10;
+        }
+        frame++;
+        if(frame<55) requestAnimationFrame(draw);
+        else ctx.clearRect(0,0,W,H);
+      }
+      draw();
+    }
+
+    // Klub kartasiga bosilganda modal ochish
+    const teamData = {
+      manutd: {
+        name: "Manchester United",
+        img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg",
+        desc: `Angliyaning eng mashhur futbol klubi.<br>
+        <b>Asos solingan:</b> 1878<br>
+        <b>Stadion:</b> Old Trafford<br>
+        <b>Yutuqlari:</b> 20 ta Angliya chempionligi, 3 ta UEFA Chempionlar Ligasi va boshqa ko‘plab sovrinlar.<br>
+        <b>Afsonaviy o‘yinchilar:</b> Ryan Giggs, Paul Scholes, Cristiano Ronaldo, Wayne Rooney va boshqalar.`
+      },
+      barca: {
+        name: "FC Barcelona",
+        img: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
+        desc: `Ispaniyaning eng mashhur klublaridan biri, afsonaviy tiki-taka uslubining asoschisi.<br>
+        <b>Asos solingan:</b> 1899<br>
+        <b>Stadion:</b> Spotify Camp Nou<br>
+        <b>Yutuqlari:</b> 27 ta La Liga, 5 ta UEFA Chempionlar Ligasi, 3 ta FIFA Klub Jahon chempionati.<br>
+        <b>Afsonaviy o‘yinchilar:</b> Lionel Messi, Xavi, Iniesta, Ronaldinho, Puyol va boshqalar.`
+      },
+      realmadrid: {
+        name: "Real Madrid",
+        img: "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+        desc: `Dunyoning eng sovrindor va badavlat futbol klubi, "Qirollik klubi" deb ataladi.<br>
+        <b>Asos solingan:</b> 1902<br>
+        <b>Stadion:</b> Santiago Bernabeu<br>
+        <b>Yutuqlari:</b> 36 ta La Liga, 15 ta UEFA Chempionlar Ligasi (rekord), 5 ta FIFA Klub Jahon chempionati.<br>
+        <b>Afsonaviy o‘yinchilar:</b> Cristiano Ronaldo, Raul, Zidane, Di Stefano, Modric va boshqalar.`
+      }
+    };
+
+    document.querySelectorAll('.team-card').forEach(card=>{
+      card.addEventListener('click', function() {
+        const team = this.getAttribute('data-team');
+        if(teamData[team]) {
+          const modal = document.getElementById('team-modal');
+          const inner = document.getElementById('team-modal-inner');
+          inner.innerHTML = `
+            <img src="${teamData[team].img}" alt="${teamData[team].name}">
+            <h3>${teamData[team].name}</h3>
+            <p>${teamData[team].desc}</p>
+          `;
+          modal.style.display = 'flex';
+          modal.focus();
+        }
+      });
+    });
+    document.querySelector('.team-modal-close').onclick = closeTeamModal;
+    document.querySelector('.team-modal-overlay').onclick = closeTeamModal;
+    document.getElementById('team-modal').addEventListener('keydown', e=>{
+      if(e.key === 'Escape') closeTeamModal();
+    });
+    function closeTeamModal(){
+      document.getElementById('team-modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

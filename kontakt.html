@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KickFlash - Kontakt</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="site-loader">
+    <div class="loader-logo"></div>
+    <div class="loader-spin"></div>
+  </div>
+  <div id="site-toast"></div>
+  <button id="theme-toggle" aria-label="Tungi/yorug‘ rejim"><span>🌙</span></button>
+  <button id="scroll-up" aria-label="Yuqoriga qaytish">↑</button>
+  <header class="main-header glassy">
+    <div class="container header__container">
+      <a href="index.html" class="logo neon">KickFlash</a>
+      <nav class="nav" aria-label="Sayt navigatsiyasi">
+        <ul>
+          <li><a href="index.html" class="nav__link">Bosh sahifa</a></li>
+          <li><a href="videolar.html" class="nav__link">Videolar</a></li>
+          <li><a href="obuna.html" class="nav__link">Obuna bo'lish</a></li>
+          <li><a href="kontakt.html" class="nav__link nav__link--active">Kontakt</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Navigatsiyani ochish" aria-expanded="false"><span>≡</span></button>
+      </nav>
+    </div>
+  </header>
+  <section class="contact glassy">
+    <div class="container">
+      <h2 class="contact-title">Biz bilan bog'laning</h2>
+      <form action="#" method="post" class="contact-form" autocomplete="off">
+        <div class="form-group">
+          <label for="name">Ismingiz</label>
+          <input type="text" id="name" name="name" placeholder="Ismingizni kiriting" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Xabar</label>
+          <textarea id="message" name="message" rows="5" placeholder="Xabaringizni yozing..." required></textarea>
+        </div>
+        <button type="submit" class="btn glow-btn">Yuborish</button>
+      </form>
+      <div class="social-links">
+        <p>Ijtimoiy tarmoqlarda ham biz bilan bo'ling:</p>
+        <a href="https://t.me/botirqodirov_iv" target="_blank">Telegram</a> |
+        <a href="https://instagram.com/botir_qodirof" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+  <footer class="main-footer glassy">
+    <div class="container">
+      <p>&copy; 2025 KickFlash | <a href="https://t.me/botirqodirov_iv" target="_blank">Telegram</a> | <a href="https://instagram.com/botir_qodirof" target="_blank">Instagram</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
